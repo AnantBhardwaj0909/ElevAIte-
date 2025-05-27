@@ -21,12 +21,12 @@ import { format } from "date-fns";
 
 export default function PerformanceChart({ assessments }) {
   const [chartData, setChartData] = useState([]);
-
+  console.log(assessments);
   useEffect(() => {
-    if (assessments) {
+    if (assessments?.length) {
       const formattedData = assessments.map((assessment) => ({
-        date: format(new Date(assessment.createdAt), "MMM dd"),
-        score: assessment.quizScore,
+        date: format(new Date(assessment.createdAt), "MMM dd, HH:mm"),
+        score: Number(assessment.quizScore) || 0,
       }));
       setChartData(formattedData);
     }
@@ -64,12 +64,12 @@ export default function PerformanceChart({ assessments }) {
                   return null;
                 }}
               />
-              <Line
-                type="monotone"
-                dataKey="score"
-                stroke="hsl(var(--primary))"
-                strokeWidth={2}
-              />
+            <Line
+              type="monotone"
+              dataKey="score"
+              stroke="#4f46e5"
+              strokeWidth={2}
+            />
             </LineChart>
           </ResponsiveContainer>
         </div>
