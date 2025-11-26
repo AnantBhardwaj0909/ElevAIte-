@@ -64,7 +64,7 @@ const Header =async() => {
             </DropdownMenuItem>
 
             <DropdownMenuItem>
-              <Link href={'/mock1'} className='flex items-center gap-2'>
+              <Link href={'/mock'} className='flex items-center gap-2'>
                 <Camera className="h-4 w-4" />
                 <span>Mock Interviewer</span>
               </Link>
