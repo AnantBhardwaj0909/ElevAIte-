@@ -35,7 +35,7 @@ export default function RootLayout({ children }) {
             {/* footer */}
             <footer className="bg-muted/50 py-12"> 
               <div className="container mx-auto px-4 text-center text-gray=400">
-                <p>Tumse Na ho payega </p>
+                <p>Be Prepared For The Future....</p>
               </div>
             </footer>
           </ThemeProvider>
