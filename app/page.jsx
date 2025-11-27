@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { button } from "@/components/ui/button";
 import HeroSection from "@/components/ui/Hero";
 import { features } from "./data/features";
 import { Card, CardContent } from "@/components/ui/card";
@@ -20,7 +21,7 @@ export default function Home() {
 
       <HeroSection />
 
-      {/* USER REVIEWS */}
+      {/* USER REVIEWS SECTION 1 */}
       <section className="w-full py-12 md:py-24 lg:py-32 bg-background">
         <div className="container mx-auto px-4 md:px-6">
           <h2 className="text-4xl font-extrabold tracking-tight text-center mb-16 text-gray-900 dark:text-white">
@@ -28,22 +29,22 @@ export default function Home() {
           </h2>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
-            {testimonial.map((item, index) => (
+            {testimonial.map((feature, index) => (
               <Card
                 key={index}
                 className="border-2 border-transparent hover:border-primary shadow-sm hover:shadow-md transition-all duration-300 rounded-4xl backdrop-blur-md bg-opacity-90 ring-1 ring-green-400/20"
               >
                 <CardContent className="flex flex-col items-center text-center space-y-4 py-6">
                   <h3 className="text-xl font-bold text-gray-800 dark:text-white">
-                    {item.author}
+                    {feature.author}
                   </h3>
 
                   <h4 className="text-sm font-semibold text-muted-foreground">
-                    {item.role} · {item.company}
+                    {feature.role} · {feature.company}
                   </h4>
 
                   <p className="text-sm text-muted-foreground max-w-xs">
-                    {item.quote}
+                    {feature.quote}
                   </p>
                 </CardContent>
               </Card>
@@ -52,7 +53,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* STATS */}
+      {/* STATS SECTION */}
       <section className="w-full py-12 md:py-24 bg-muted/50">
         <div className="container mx-auto px-4 md:px-6">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-6xl mx-auto text-center">
@@ -63,7 +64,9 @@ export default function Home() {
 
             <div className="flex flex-col items-center justify-center space-y-2">
               <h3 className="text-4xl font-extrabold text-primary">1000+</h3>
-              <p className="text-sm text-muted-foreground">Interview Questions</p>
+              <p className="text-sm text-muted-foreground">
+                Interview Questions
+              </p>
             </div>
 
             <div className="flex flex-col items-center justify-center space-y-2">
@@ -91,7 +94,10 @@ export default function Home() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-6xl mx-auto">
             {howItWorks.map((item, index) => (
-              <div key={index} className="flex flex-col items-center text-center space-y-4">
+              <div
+                key={index}
+                className="flex flex-col items-center text-center space-y-4"
+              >
                 <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center">
                   {item.icon}
                 </div>
@@ -103,7 +109,39 @@ export default function Home() {
         </div>
       </section>
 
-      {/* FAQs */}
+      {/* USER REVIEWS SECTION 2 (WITH IMAGE REMOVED) */}
+      <section className="w-full py-12 md:py-24 lg:py-32 bg-background">
+        <div className="container mx-auto px-4 md:px-6">
+          <h2 className="text-4xl font-extrabold tracking-tight text-center mb-16 text-gray-900 dark:text-white">
+            User Reviews
+          </h2>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+            {testimonial.map((feature, index) => (
+              <Card
+                key={index}
+                className="border-2 border-transparent hover:border-primary shadow-sm hover:shadow-md transition-all duration-300 rounded-4xl backdrop-blur-md bg-opacity-90 ring-1 ring-green-400/20"
+              >
+                <CardContent className="flex flex-col items-center text-center space-y-4">
+                  <h3 className="text-xl font-bold text-gray-800 dark:text-white">
+                    {feature.author}
+                  </h3>
+
+                  <h4 className="text-sm font-semibold text-muted-foreground">
+                    {feature.role} · {feature.company}
+                  </h4>
+
+                  <p className="text-sm text-muted-foreground max-w-xs">
+                    {feature.quote}
+                  </p>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* FAQ */}
       <section className="w-full py-12 md:py-24 lg:py-32 bg-background">
         <div className="container mx-auto px-4 md:px-6">
           <h2 className="text-4xl font-extrabold tracking-tight text-center mb-4 text-gray-900 dark:text-white">
@@ -116,10 +154,10 @@ export default function Home() {
 
         <div className="max-w-4xl mx-auto">
           <Accordion type="single" collapsible>
-            {faqs.map((item, index) => (
+            {faqs.map((feature, index) => (
               <AccordionItem value={`item-${index}`} key={index}>
-                <AccordionTrigger>{item.question}</AccordionTrigger>
-                <AccordionContent>{item.answer}</AccordionContent>
+                <AccordionTrigger>{feature.question}</AccordionTrigger>
+                <AccordionContent>{feature.answer}</AccordionContent>
               </AccordionItem>
             ))}
           </Accordion>
@@ -134,7 +172,8 @@ export default function Home() {
           </h2>
 
           <p className="text-lg text-muted-foreground mb-8">
-            Ready to grow? Team up with our expert AI mentor and join thousands of professionals who’ve already leveled up.
+            Ready to grow? Team up with our expert AI mentor and join thousands
+            of professionals who’ve already leveled up.
           </p>
 
           <Link href="/dashboard" passHref>
@@ -146,4 +185,4 @@ export default function Home() {
       </section>
     </div>
   );
-}
+} 
