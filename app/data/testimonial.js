@@ -17,6 +17,14 @@ export const testimonial = [
     },
     {
       quote:
+        "ElevAIte helped me identify the exact skills I was missing. The personalized guidance boosted my confidence and improved my interview performance drastically.",
+      author: "Abhijyan Dabral",
+      image: "/4.jpg", // optional — safe to keep even if you're not using images
+      role: "Data Analyst",
+      company: "GEU Dehradun",
+    },
+    {
+      quote:
         "Thanks to ElevAIte, my resume’s ATS score shot up. I got more interviews in two weeks than I did in six months before!",
       author: "Manan Mahendiyan",
       image: "/1.jpg",
